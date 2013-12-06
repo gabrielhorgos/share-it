@@ -16,6 +16,7 @@ class Comment
     protected $unlikes;
     protected $user;
     protected $post;
+    protected $text;
 
     function __construct()
     {
@@ -23,6 +24,22 @@ class Comment
         $this->updatedAt = new \DateTime();
         $this->unlikes = 0;
         $this->likes = 0;
+    }
+
+    /**
+     * @param mixed $text
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
     }
 
     /**

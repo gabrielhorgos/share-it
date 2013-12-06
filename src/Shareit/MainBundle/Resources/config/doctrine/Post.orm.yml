@@ -15,6 +15,10 @@ Shareit\MainBundle\Entity\Post:
             type: integer
         unlikes:
             type: integer
+        title:
+            string: 255
+        text:
+            type: text
     manyToOne:
         user:
             targetEntity: User

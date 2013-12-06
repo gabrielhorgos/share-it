@@ -1,0 +1,7 @@
+parameters:
+#    shareit_back_office.example.class: Shareit\BackOfficeBundle\Example
+
+services:
+#    shareit_back_office.example:
+#        class: %shareit_back_office.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

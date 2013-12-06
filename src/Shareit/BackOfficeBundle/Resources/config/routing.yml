@@ -1,0 +1,9 @@
+bo_login_check:
+    pattern: /login_check
+
+bo_logout:
+    pattern: /logout
+
+bo_login:
+    pattern: /backoffice-login
+    defaults: { _controller:ShareitBackOfficeBundle:Security:login }

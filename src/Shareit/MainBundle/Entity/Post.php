@@ -16,6 +16,8 @@ class Post
     protected $unlikes;
     protected $user;
     protected $comments;
+    protected $title;
+    protected $text;
 
     function __construct()
     {
@@ -23,6 +25,38 @@ class Post
         $this->unlikes = 0;
         $this->likes = 0;
         $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * @param mixed $text
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     /**
