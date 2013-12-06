@@ -3,3 +3,4 @@ app/logs/*
 web/
 vendor/
 bin/
+app/config/parameters.yml
