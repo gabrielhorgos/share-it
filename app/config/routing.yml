@@ -1,0 +1,4 @@
+shareit_main:
+    resource: "@ShareitMainBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,7 @@
+parameters:
+#    shareit_main.example.class: Shareit\MainBundle\Example
+
+services:
+#    shareit_main.example:
+#        class: %shareit_main.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

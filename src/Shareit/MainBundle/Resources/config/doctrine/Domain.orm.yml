@@ -1,0 +1,17 @@
+Shareit\MainBundle\Entity\Domain:
+    type: entity
+    table: domains
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+        nrOfFollowers:
+            type: integer
+    lifecycleCallbacks: {  }

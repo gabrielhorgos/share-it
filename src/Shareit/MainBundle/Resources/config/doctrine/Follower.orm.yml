@@ -1,0 +1,17 @@
+Shareit\MainBundle\Entity\Follower:
+    type: entity
+    table: followers
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        followedAt:
+            type: datetime
+    manyToOne:
+        user:
+            targetEntity: User
+        domain:
+            targetEntity: Domain
+    lifecycleCallbacks: {  }

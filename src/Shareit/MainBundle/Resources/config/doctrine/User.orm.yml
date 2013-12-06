@@ -1,0 +1,42 @@
+Shareit\MainBundle\Entity\User:
+    type: entity
+    table: users
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        username:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+        salt:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+        passwordUpdatedAt:
+            type: datetime
+        roles:
+            type: array
+    oneToOne:
+        profile:
+            targetEntity: Profile
+            mappedBy: user
+            cascade: ["persist", "remove"]
+    oneToMany:
+        posts:
+            targetEntity: Post
+            mappedBy: user
+            cascade: ["persist","remove"]
+        comments:
+            targetEntity: Comment
+            mappedBy: user
+            cascade: ["persist","remove"]
+    lifecycleCallbacks: {  }

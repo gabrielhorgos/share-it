@@ -1,0 +1,17 @@
+Shareit\MainBundle\Entity\CommentUnlike:
+    type: entity
+    table: comment_unlikes
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        createdAt:
+            type: datetime
+    manyToOne:
+        user:
+            targetEntity: User
+        comment:
+            targetEntity: Comment
+    lifecycleCallbacks: {  }

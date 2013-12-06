@@ -1,0 +1,48 @@
+Shareit\MainBundle\Entity\Profile:
+    type: entity
+    table: profiles
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        gender:
+            type: string
+            length: 50
+        firstname:
+            type: string
+            length: 255
+        lastname:
+            type: string
+            length: 255
+        address:
+            type: string
+            length: 255
+            nullable: true
+        city:
+            type: string
+            length: 255
+            nullable: true
+        zipcode:
+            type: string
+            length: 6
+            nullable: true
+        phone:
+            type: string
+            length: 10
+            nullable: true
+        company:
+            type: string
+            length: 255
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        updatedAt:
+            type: datetime
+    oneToOne:
+        user:
+            targetEntity: user
+            inversedBy: profile
+    lifecycleCallbacks: {  }

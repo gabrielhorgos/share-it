@@ -1,0 +1,17 @@
+Shareit\MainBundle\Entity\PostLike:
+    type: entity
+    table: post_likes
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        createdAt:
+            type: datetime
+    manyToOne:
+        user:
+            targetEntity: User
+        post:
+            targetEntity: Post
+    lifecycleCallbacks: {  }

@@ -1,0 +1,25 @@
+Shareit\MainBundle\Entity\Comment:
+    type: entity
+    table: comments
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+        likes:
+            type: integer
+        unlikes:
+            type: integer
+    manyToOne:
+        user:
+            targetEntity: User
+            mappedBy: comments
+        post:
+            targetEntity: Post
+            inversedBy: comments
+    lifecycleCallbacks: {  }
