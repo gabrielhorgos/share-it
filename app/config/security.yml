@@ -19,7 +19,8 @@ security:
                 users:
                     user:  { password: 39e21432a7dcba489697b4ef779f4b0c6f08b89f, roles: [ 'ROLE_USER' ] }
                     admin: { password: 39e21432a7dcba489697b4ef779f4b0c6f08b89f, roles: [ 'ROLE_ADMIN' ] }
-
+        main:
+            entity: { class: Shareit\MainBundle\Entity\User, property: username }
     firewalls:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
@@ -43,7 +44,19 @@ security:
             #http_basic:
             #    realm: "Secured Demo Area"
 
+        main:
+             pattern: /(.*)
+             form_login:
+                 provider: main
+                 login_path: /login
+                 check_path: /login_check
+                 default_target_path: /
+                 always_use_default_target_path: false
+                 use_referer: true
+             anonymous: ~
+
     access_control:
         - { path: ^/admin/backoffice-login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

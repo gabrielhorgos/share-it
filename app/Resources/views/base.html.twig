@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<!--[if IE 7]>
+<html class="msie7" lang="fr"><![endif]-->
+<!--[if IE 8]>
+<html class="msie8" lang="fr"><![endif]-->
+<!--[if IE 9]>
+<html class="msie9" lang="fr"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="fr" xmlns="http://www.w3.org/1999/html"><!-- <![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{{ asset('bundles/shareitmain/css/all.css') }}" type="text/css">
+    <title></title>
+
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{% block body %}
+
+    <p class="accessibility">
+        <a href="#page">Allez au contenu</a>,
+        <a href="#menu">Allez à la navigation</a>
+    </p>
+
+    {% include '::menu.html.twig' %}
+
+    {% block page %}{% endblock %}
+
+{% endblock %}
+
+</body>
 </html>

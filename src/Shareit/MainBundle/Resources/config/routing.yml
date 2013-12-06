@@ -1,3 +1,17 @@
-shareit_main_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: ShareitMainBundle:Default:index }
+registration:
+    pattern:  /register
+    defaults: { _controller: ShareitMainBundle:Registration:register }
+
+homepage:
+    pattern:  /
+    defaults: { _controller: ShareitMainBundle:Homepage:index }
+
+fo_login:
+    pattern: /login
+    defaults: { _controller: ShareItMainBundle:Registration:login }
+
+fo_login_check:
+    pattern: /login_check
+
+fo_logout:
+    pattern: /logout

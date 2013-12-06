@@ -1,0 +1,29 @@
+{% set theme = categoryTheme|default(app.request.get('name')) %}
+<div id="header">
+    <div class="inner-width line">
+        <a class="site-logo unit"
+           href="#"><img src="{{ asset('bundles/carrefourmain/img/data/logo-carrefour.png') }}" alt="Logo carrefour"></a>
+
+        <ul id="menu" class="unit bold txt-15">
+            <li><a href="#" class="rd3 negative groups-clr{% if theme == 'groups' %} active{% endif %}">Groups</a></li>
+            <li><a href="#" class="rd3 negative posts-clr{% if theme == 'posts' %} active{% endif %}">Posts</a></li>
+            <li><a href="#" class="rd3 negative tour-clr{% if theme == 'tour' %} active{% endif %}">Tour</a></li>
+            <li><a href="#" class="rd3 negative my-account-clr{%  if theme == 'tour' %} active{% endif %}">My account</a></li>
+            {#<li><a href="#" class="rd5 negative shop-clr{% if theme == 'shop' %} active{% endif %}">Courses</a></li>#}
+        </ul>
+
+        <div id="login" class="regular">
+
+            {% if is_granted('ROLE_USER') %}
+                <p id="bt-connected" class="btn btn-s bg-blue ">
+                    <a href="#">Logout</a>
+                    <a id="bt-disconnect" href="#"></a>
+                </p>
+            {% else %}
+                <a id="bt-connect" href="#" class="btn btn-s bg-gray">Login</a>
+            {% endif %}
+
+
+        </div>
+    </div>
+</div><!-- #header -->
