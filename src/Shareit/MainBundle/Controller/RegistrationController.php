@@ -13,6 +13,9 @@ class RegistrationController extends Controller
 {
     public function registerAction(Request $request)
     {
+        if ($this->get('security.context')->isGranted('ROLE_USER')) {
+            return $this->redirect($this->generateUrl('homepage'));
+        }
         $user = new User();
         $form = $this->createForm(new UserType(), $user);
 

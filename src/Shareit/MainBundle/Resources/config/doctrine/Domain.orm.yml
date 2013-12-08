@@ -10,6 +10,12 @@ Shareit\MainBundle\Entity\Domain:
         name:
             type: string
             length: 255
+        shortDescription:
+            type: string
+            length: 150
+        description:
+            type: text
+            length: 1500
         createdAt:
             type: datetime
         nrOfFollowers:

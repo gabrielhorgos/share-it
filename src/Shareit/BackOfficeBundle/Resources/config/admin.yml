@@ -2,10 +2,20 @@ services:
     sonata.admin.post:
         class: Shareit\BackOfficeBundle\Admin\PostAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Post" }
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Posts" }
         arguments:
             - ~
             - Shareit\MainBundle\Entity\Post
+            - ~
+        calls:
+            - [ setTranslationDomain, [BackOfficeBundle]]
+    sonata.admin.domain:
+        class: Shareit\BackOfficeBundle\Admin\DomainAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Domains" }
+        arguments:
+            - ~
+            - Shareit\MainBundle\Entity\Domain
             - ~
         calls:
             - [ setTranslationDomain, [BackOfficeBundle]]

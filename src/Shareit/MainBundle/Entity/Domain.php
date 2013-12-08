@@ -11,6 +11,8 @@ class Domain
 {
     private $id;
     private $name;
+    private $shortDescription;
+    private $description;
     private $createdAt;
     private $nrOfFollowers;
 
@@ -20,11 +22,42 @@ class Domain
         $this->nrOfFollowers = 0;
     }
 
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $shortDescription
+     */
+    public function setShortDescription($shortDescription)
+    {
+        $this->shortDescription = $shortDescription;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getShortDescription()
+    {
+        return $this->shortDescription;
+    }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -40,14 +73,14 @@ class Domain
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -63,14 +96,14 @@ class Domain
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -86,14 +119,14 @@ class Domain
     public function setNrOfFollowers($nrOfFollowers)
     {
         $this->nrOfFollowers = $nrOfFollowers;
-    
+
         return $this;
     }
 
     /**
      * Get nrOfFollowers
      *
-     * @return integer 
+     * @return integer
      */
     public function getNrOfFollowers()
     {
