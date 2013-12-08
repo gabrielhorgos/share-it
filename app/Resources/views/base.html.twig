@@ -10,21 +10,15 @@
 <head>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="{{ asset('bundles/shareitmain/css/all.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('bundles/shareitmain/css/bootstrap.css') }}" type="text/css">
     <title></title>
 
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
 </head>
-<body class="{% block body_class %}{% endblock %}">
+<body style="padding-top: 50px;">
 {% block body %}
-
-    <p class="accessibility">
-        <a href="#page">Allez au contenu</a>,
-        <a href="#menu">Allez à la navigation</a>
-    </p>
-
     {% include '::menu.html.twig' %}
 
     {% block page %}{% endblock %}

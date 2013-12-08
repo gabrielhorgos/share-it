@@ -10,7 +10,7 @@ class User
     protected $username;
     protected $email;
     protected $password;
-    protected $salt;
+    protected $plainPassword;
     protected $createdAt;
     protected $updatedAt;
     protected $passwordUpdatedAt;
@@ -19,12 +19,17 @@ class User
     protected $posts;
     protected $comments;
 
+    public function __toString()
+    {
+        return $this->username;
+    }
+
     function __construct()
     {
         $this->createdAt = new \Datetime();
         $this->updatedAt = new \Datetime();
         $this->passwordUpdatedAt = new \Datetime();
-        $this->roles = "['ROLE_USER']";
+        $this->roles = array("ROLE_USER");
     }
 
     /**
@@ -33,6 +38,22 @@ class User
     public function setComments($comments)
     {
         $this->comments = $comments;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
     }
 
     /**
@@ -83,7 +104,7 @@ class User
     public function setUsername($username)
     {
         $this->username = $username;
-    
+
         return $this;
     }
 
@@ -95,7 +116,7 @@ class User
     public function setEmail($email)
     {
         $this->email = $email;
-    
+
         return $this;
     }
 
@@ -107,7 +128,7 @@ class User
     public function setPassword($password)
     {
         $this->password = $password;
-    
+
         return $this;
     }
 
@@ -116,22 +137,10 @@ class User
         return $this->password;
     }
 
-    public function setSalt($salt)
-    {
-        $this->salt = $salt;
-    
-        return $this;
-    }
-
-    public function getSalt()
-    {
-        return $this->salt;
-    }
-
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
@@ -143,7 +152,7 @@ class User
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
-    
+
         return $this;
     }
 
@@ -155,7 +164,7 @@ class User
     public function setPasswordUpdatedAt($passwordUpdatedAt)
     {
         $this->passwordUpdatedAt = $passwordUpdatedAt;
-    
+
         return $this;
     }
 
@@ -167,7 +176,7 @@ class User
     public function setRoles($roles)
     {
         $this->roles = $roles;
-    
+
         return $this;
     }
 

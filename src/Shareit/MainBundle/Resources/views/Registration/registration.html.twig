@@ -2,14 +2,96 @@
 
 {% block page %}
     <div id="page">
-        <div class="line-white">
-            <div class="inner-width txt-c">
-                <h1 class="title-5" data-icon="s">
-                    <span>Inscription</span>
-                </h1>
+        <h1 class="title-5" data-icon="s">
+            <span>Register</span>
+        </h1>
+
+        <form id="form-registration" method="POST" action="{{ path('registration') }}" novalidate="novalidate">
+            <div class="unit">
+                <p id="civility" class="form-item form-radio">
+                    {{ form_widget(form.profile.gender) }}
+                </p>
+
+                <p class="form-item form-text">
+                    <label for="fistname">FirstName*</label>
+                    {{ form_widget(form.profile.firstname, {'attr': {'class': 'checkfield required name', 'tabindex': '1' },'id':'fistname' }) }}
+                </p>
+
+                <p class="form-item form-text">
+                    <label for="lastname">LastName*</label>
+                    {{ form_widget(form.profile.lastname, {'attr': {'class': 'checkfield required name', 'tabindex': '2' },'id': 'lastname' }) }}
+                </p>
+
+                <p class="form-item form-text">
+                    <label for="email">Email*</label>
+                    {{ form_widget(form.email, {'attr': {'class': 'checkfield required email', 'tabindex': '3'  }, 'id': 'email' }) }}
+                </p>
+
+                <p class="form-item form-text">
+                    <label for="email">Username*</label>
+                    {{ form_widget(form.username, {'attr': {'class': 'checkfield required', 'tabindex': '4'  }, 'id': 'email' }) }}
+                </p>
+
+                <p class="form-item form-text ">
+                    <label for="password">Password*</label>
+                    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'checkfield required password', 'tabindex': '5' } }) }}
+                </p>
+
+                <p class="form-item form-text">
+                    <label for="password-confirm">Confirm password*</label>
+                    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'checkfield required password-confirm', 'tabindex': '6' }}) }}
+                </p>
+
+
+                <p class="form-item form-text">
+                    <label for="town">City</label>
+                    {{ form_widget(form.profile.city, {'attr': {'tabindex': '7' },'id':'town' }) }}
+                </p>
+
+                <p class="form-item form-text">
+                    <label for="address">Address</label>
+                    {{ form_widget(form.profile.address, {'attr': {'tabindex': '8' }}) }}
+                </p>
+
+                <p class="form-item form-text">
+                    <label for="zipcode">Zipcode</label>
+                    {{ form_widget(form.profile.zipcode, {'attr': {'class': 'checkfield zipcode', 'tabindex': '9' },'id':'zipcode' }) }}
+                </p>
+
+                <p class="form-item form-text">
+                    <label for="phone">Phone</label>
+                    {{ form_widget(form.profile.phone, {'attr': {'class': 'checkfield phone', 'tabindex': '10' },'id':'phone' }) }}
+                </p>
+
+                <p class="form-item form-text">
+                    <label for="phone">Company</label>
+                    {{ form_widget(form.profile.company, {'attr': {'tabindex': '11' } }) }}
+                </p>
+
+                <p class="form-item form-text">
+                    <label for="phone">Description</label>
+                    {{ form_widget(form.profile.description, {'attr': { 'tabindex': '12' } }) }}
+                </p>
+
             </div>
-        </div>
+            <p>* Mentions obligatoires</p>
 
+            </br>
+            Pour valider votre inscription veuillez saisir le code suivant:
+            <br/>
 
+            <div class="text-error">
+                {{ form_errors(form) }}
+            </div>
 
+            <p class="form-item form-submit txt-c">
+                <button type="submit" class="btn btn-l bg-blue" tabindex="12" id='registration-button'>
+                    Je m'inscris
+                    <span class="icon icon-arrow-right"></span>
+                </button>
+            </p>
+            {{ form_widget(form._token) }}
+        </form>
+
+    </div>
 {% endblock %}

@@ -16,9 +16,6 @@ Shareit\MainBundle\Entity\User:
         password:
             type: string
             length: 255
-        salt:
-            type: string
-            length: 255
         createdAt:
             type: datetime
         passwordUpdatedAt:

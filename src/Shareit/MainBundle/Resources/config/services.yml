@@ -1,7 +1,15 @@
-parameters:
-#    shareit_main.example.class: Shareit\MainBundle\Example
-
 services:
-#    shareit_main.example:
-#        class: %shareit_main.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    validator_unique_unique_email:
+        class: Shareit\MainBundle\Form\Constraints\UniqueUserEmailValidator
+        tags:
+            - { name: validator.constraint_validator, alias: unique_email }
+        arguments: [@doctrine.orm.entity_manager]
+
+    validator_unique_unique_username:
+        class: Shareit\MainBundle\Form\Constraints\UniqueUsernameValidator
+        tags:
+            - { name: validator.constraint_validator, alias: unique_username }
+        arguments: [@doctrine.orm.entity_manager]
+    shareit.user_manager:
+        class: Shareit\MainBundle\Services\Manager\UserManager
+        arguments: [ @security.encoder_factory, @doctrine.orm.entity_manager ]

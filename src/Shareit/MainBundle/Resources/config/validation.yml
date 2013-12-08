@@ -1,0 +1,33 @@
+Shareit\MainBundle\Entity\User:
+    properties:
+         email:
+            - Email:
+                message: user.register.errors.5
+         password:
+            - Length:
+                min: 6
+                minMessage: user.register.errors.16
+Shareit\MainBundle\Entity\Profile:
+    properties:
+         zipcode:
+            - NotBlank:
+                message: user.register.errors.11
+            - Shareit\MainBundle\Form\Constraints\Zip:
+                message: user.register.errors.8
+         lastname:
+            - NotBlank:
+                message: user.register.errors.9
+         firstname:
+            - NotBlank:
+                message: user.register.errors.10
+         city:
+            - NotBlank:
+                message: user.register.errors.12
+         address:
+            - NotBlank:
+                message: user.register.errors.14
+         gender:
+            - NotBlank:
+                message: user.register.errors.21
+            - Choice:
+                choices: ['Mr','Ms','Mrs']
