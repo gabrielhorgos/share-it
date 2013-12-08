@@ -19,7 +19,7 @@ class UniqueUserEmailValidator extends ConstraintValidator
         $result = $this->em->getRepository('ShareitMainBundle:User')->findOneByEmail($value);
 
         if (!empty($result) && $result->getId() != $constraint->id) {
-             $this->context->addViolation($constraint->message);
+            $this->context->addViolation($constraint->message);
         }
     }
 

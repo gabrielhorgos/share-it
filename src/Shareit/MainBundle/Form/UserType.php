@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Shareit\MainBundle\Form\Constraints\UniqueUsername;
 use Shareit\MainBundle\Form\Constraints\UniqueUserEmail;
 use Shareit\MainBundle\Form\ProfileType;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class UserType extends AbstractType
 {
@@ -20,12 +21,14 @@ class UserType extends AbstractType
             ->add('username', null, array(
                 'required' => false,
                 'constraints' => array(
-//                    new UniqueUsername(),
+                    new UniqueUsername(),
+                    new NotBlank(),
                 )))
             ->add('email', null, array(
                 'required' => false,
                 'constraints' => array(
-//                    new UniqueUserEmail(),
+                    new UniqueUserEmail(),
+                    new NotBlank(),
                 )))
             ->add('plainPassword', 'repeated', array(
                 'type' => 'password',

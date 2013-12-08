@@ -43,6 +43,6 @@ Shareit\MainBundle\Entity\Profile:
             type: datetime
     oneToOne:
         user:
-            targetEntity: user
+            targetEntity: User
             inversedBy: profile
     lifecycleCallbacks: {  }

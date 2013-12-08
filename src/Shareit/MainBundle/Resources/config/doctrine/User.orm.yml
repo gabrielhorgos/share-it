@@ -1,6 +1,7 @@
 Shareit\MainBundle\Entity\User:
     type: entity
     table: users
+    repositoryClass: Shareit\MainBundle\Repository\UserRepository
     fields:
         id:
             type: integer

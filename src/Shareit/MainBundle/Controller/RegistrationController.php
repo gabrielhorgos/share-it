@@ -14,7 +14,6 @@ class RegistrationController extends Controller
     {
         $user = new User();
         $form = $this->createForm(new UserType(), $user);
-        $formHasErrors = false;
 
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
