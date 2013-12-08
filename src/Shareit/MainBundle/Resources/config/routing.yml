@@ -8,7 +8,7 @@ homepage:
 
 fo_login:
     pattern: /login
-    defaults: { _controller: ShareItMainBundle:Registration:login }
+    defaults: { _controller: ShareitMainBundle:Registration:login }
 
 fo_login_check:
     pattern: /login_check

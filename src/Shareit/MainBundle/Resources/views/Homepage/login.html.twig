@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+
+{% block page%}
+    <div id="page">
+
+        <form action="{{ path('fo_login_check') }}" method="post" class="form-inline">
+
+            <div class="input-prepend">
+                <span class="add-on" id="username-label" style="width: 112px;"><i class="icon-user "></i> Email/username</span>
+                <input type="text" id="username" name="_username" value="" placeholder="User"/>
+            </div>
+            <br/>
+
+            <div class="input-prepend">
+                <span class="add-on" id="password-label" style="width: 112px;"><i class="icon-lock "></i> Password</span>
+                <input type="password" id="password" name="_password" placeholder="Password"/>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-warning" name="login"><i class="icon-user icon-white"></i>Login</button>
+        </form>
+    </div>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.message }}</div>
+    {% endif %}
+{% endblock %}

@@ -1,6 +1,8 @@
+
 app/cache/*
 app/logs/*
 web/uploads
+web/bundles/
 vendor/
 bin/
 app/config/parameters.yml
