@@ -1,23 +1,32 @@
 {% extends '::base.html.twig' %}
 
-{% block page%}
+{% block page %}
     <div id="page">
+        <div class="row" style="margin-top:100px; margin-left: 300px;">
+            <div class="col-sm-4 left">
+                <form action="{{ path('fo_login_check') }}" method="post" class="form-inline">
 
-        <form action="{{ path('fo_login_check') }}" method="post" class="form-inline">
+                    <div class="input-prepend">
+                        <span class="add-on" id="username-label" style="width: 112px;"><i class="icon-user "></i> Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <input type="text" id="username" name="_username" value="" placeholder="User"/>
+                    </div>
+                    <br/>
 
-            <div class="input-prepend">
-                <span class="add-on" id="username-label" style="width: 112px;"><i class="icon-user "></i> Email/username</span>
-                <input type="text" id="username" name="_username" value="" placeholder="User"/>
+                    <div class="input-prepend">
+                        <span class="add-on" id="password-label" style="width: 112px;"><i class="icon-lock "></i> Password:</span>
+                        <input type="password" id="password" name="_password" placeholder="Password"/>
+                    </div>
+                    <br/>
+                    <button type="submit" class="btn btn-warning" name="login"><i class="icon-user icon-white"></i>Login</button>
+                </form>
             </div>
-            <br/>
-
-            <div class="input-prepend">
-                <span class="add-on" id="password-label" style="width: 112px;"><i class="icon-lock "></i> Password</span>
-                <input type="password" id="password" name="_password" placeholder="Password"/>
+            <div class="col-sm-4 right">
+                <p>Don't have an account yet?</p>
+                <a href="{{ path('registration') }}" class="btn btn-success">Register now</a>
+                </br>
+                <a href="#" class="btn btn-default" style="margin-top:28px;">Forgot password?</a>
             </div>
-            <br/>
-            <button type="submit" class="btn btn-warning" name="login"><i class="icon-user icon-white"></i>Login</button>
-        </form>
+        </div>
     </div>
 
     {% if error %}

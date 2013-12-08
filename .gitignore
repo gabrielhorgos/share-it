@@ -2,8 +2,9 @@
 app/cache/*
 app/logs/*
 web/uploads
-web/bundles/
+web/bundles
 vendor/
 bin/
 app/config/parameters.yml
 .idea
+.gitignore~
