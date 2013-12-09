@@ -41,6 +41,9 @@ Shareit\MainBundle\Entity\Profile:
             nullable: true
         updatedAt:
             type: datetime
+        photo:
+            type: string
+            nullable: true
     oneToOne:
         user:
             targetEntity: User

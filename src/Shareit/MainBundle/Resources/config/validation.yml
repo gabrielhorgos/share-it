@@ -10,8 +10,6 @@ Shareit\MainBundle\Entity\User:
 Shareit\MainBundle\Entity\Profile:
     properties:
          zipcode:
-            - NotBlank:
-                message: user.register.errors.11
             - Shareit\MainBundle\Form\Constraints\Zip:
                 message: user.register.errors.8
          lastname:
@@ -20,12 +18,6 @@ Shareit\MainBundle\Entity\Profile:
          firstname:
             - NotBlank:
                 message: user.register.errors.10
-         city:
-            - NotBlank:
-                message: user.register.errors.12
-         address:
-            - NotBlank:
-                message: user.register.errors.14
          gender:
             - NotBlank:
                 message: user.register.errors.21

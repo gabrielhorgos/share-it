@@ -62,7 +62,10 @@ class ProfileType extends AbstractType
             ->add('company', null, array(
                 'required' => false,
             ))
-            ->add('description', 'text', array(
+            ->add('file', 'file', array(
+                'required' => false,
+            ))
+            ->add('description', 'textarea', array(
                 'required' => false,
             ));
     }

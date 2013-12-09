@@ -1,5 +1,5 @@
 <div id="header">
-    <ul class="navbar navbar-fixed-top nav nav-pills" >
+    <ul class="navbar navbar-fixed-top nav nav-pills">
         <li class="active">
             <a href="#">
                 Home
@@ -10,11 +10,11 @@
         <li><a href="#">Posts</a></li>
         <li><a href="#">Tour</a></li>
         {% if is_granted("ROLE_USER") %}
-            <li><a href="#">My account</a></li>
+            <li><a href="{{ path('my_account') }}">My account</a></li>
         {% endif %}
 
         {% if is_granted("ROLE_USER") %}
-            <li style="float:right;"><a href="{{ path('fo_logout') }}">Logout</li>
+            <li style="float:right;"><a href="{{ path('fo_logout') }}">Logout</a></li>
         {% else %}
             <li style="float:right;"><a href="{{ path("fo_login") }}">Login</a></li>
         {% endif %}

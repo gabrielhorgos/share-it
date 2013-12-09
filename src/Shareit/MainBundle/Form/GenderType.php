@@ -5,6 +5,7 @@ namespace Shareit\MainBundle\Form;
 use Shareit\MainBundle\Form\Constraints\Gender;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class GenderType extends AbstractType
 {
@@ -21,6 +22,7 @@ class GenderType extends AbstractType
             'multiple' => false,
             'constraints' => array(
                 new Gender(),
+                new NotBlank(),
             )
         ));
     }

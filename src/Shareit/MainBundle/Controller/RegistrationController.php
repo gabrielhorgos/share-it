@@ -2,9 +2,11 @@
 
 namespace Shareit\MainBundle\Controller;
 
+use Shareit\MainBundle\Form\ProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\SecurityContext;
 use Shareit\MainBundle\Entity\User;
 use Shareit\MainBundle\Form\UserType;
@@ -22,14 +24,19 @@ class RegistrationController extends Controller
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
             if ($form->isValid()) {
+                $userManager = $this->container->get('shareit.user_manager');
                 $em = $this->getDoctrine()->getManager();
-                $this->container->get('shareit.user_manager')->updatePassword($user);
+                $userManager->updatePassword($user);
                 $user->getProfile()->setUser($user);
-
+                if ($file = $request->files->get('user')) {
+                    $filename = $userManager->handleFileUpload($file['profile']['file'], 'users/');
+                    $user->getProfile()->setPhoto($filename);
+                    $user->getProfile()->setFile(null);
+                }
                 $em->persist($user);
                 $em->flush();
 
-                //login user
+                //authenticate user
                 $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
                 $this->container->get('security.context')->setToken($token);
 
@@ -60,5 +67,36 @@ class RegistrationController extends Controller
             ));
         }
         return $this->redirect($this->generateUrl('homepage'));
+    }
+
+    public function myAccountAction(Request $request)
+    {
+        if ($user = $this->getUser()) {
+
+            $form = $this->createForm(new ProfileType(), $user->getProfile());
+            if ($request->getMethod() == 'POST') {
+                $form->bind($request);
+                if ($file = $request->files->get('profile')) {
+                    $user->getProfile()->setFile('');
+                }
+                if ($form->isValid()) {
+                    if ($file = $request->files->get('profile')) {
+                        if ($file['file']) {
+                            $filename = $this->container->get('shareit.user_manager')->handleFileUpload($file['file'], 'users/');
+                            $user->getProfile()->setPhoto($filename);
+                            $user->getProfile()->setFile(null);
+                        }
+                    }
+                    $em = $this->getDoctrine()->getManager();
+                    $em->flush();
+                }
+            }
+            return $this->render('ShareitMainBundle:Registration:myaccount.html.twig', array(
+                'user' => $user,
+                'form' => $form->createView(),
+            ));
+        }
+
+        throw new AccessDeniedException();
     }
 }

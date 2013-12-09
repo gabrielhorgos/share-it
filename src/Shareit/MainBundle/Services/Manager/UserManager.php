@@ -10,11 +10,13 @@ class UserManager
 {
     private $encoderFactory;
     private $em;
+    private $kernel;
 
-    public function __construct(EncoderFactory $encoderFactory, $em)
+    public function __construct(EncoderFactory $encoderFactory, $em, $kernel)
     {
         $this->encoderFactory = $encoderFactory;
         $this->em = $em;
+        $this->kernel = $kernel;
     }
 
     /**
@@ -30,6 +32,20 @@ class UserManager
             $user->setPassword(sha1($user->getPlainPassword()));
             $user->setPlainPassword(null);
         }
+    }
+
+    public function handleFileUpload($file, $dir = '')
+    {
+        $allowedExtensions = array('jpg', 'jpeg', 'gif', 'png');
+        if (in_array($file->guessExtension(), $allowedExtensions)) {
+            $uploadDir = $this->kernel . '/../web/uploads/' . $dir;
+            $filename = sha1(uniqid(mt_rand(), true)) . '.' . $file->guessExtension();
+            $file->move($uploadDir, $filename);
+
+            return $filename;
+        }
+
+        return '';
     }
 }
 

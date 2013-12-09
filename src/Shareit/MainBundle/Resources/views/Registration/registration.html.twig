@@ -6,7 +6,7 @@
             <span>Register</span>
         </h1>
 
-        <form class="pure-form pure-form-stacked" method="POST" action="{{ path('registration') }}" novalidate="novalidate">
+        <form class="pure-form pure-form-stacked" method="POST" action="{{ path('registration') }}" novalidate="novalidate" enctype="multipart/form-data">
             <p id="civility" class="pure-checkbox">
                 {{ form_widget(form.profile.gender) }}
             </p>
@@ -80,7 +80,7 @@
 
                 <p class="pure-u-1-2 form-text">
                     <label for="address">Address</label></br>
-                    {{ form_widget(form.profile.address, {'attr': {'tabindex': '8' , 'style':'width:250px;'}}) }}
+                    {{ form_widget(form.profile.address, {'attr': {'tabindex': '8' , 'style':'width:250px;' }}) }}
                     {% if form_errors(form.profile.address) %}
                         <span class="error">adsas</span>
                     {% endif %}
@@ -115,13 +115,20 @@
 
 
                 <p class="pure-u-1-2 form-text">
-                    <label for="phone">Description</label></br>
-                    {{ form_widget(form.profile.description, {'attr': { 'tabindex': '12', 'style':'width:250px;' } }) }}
-                    {% if form_errors(form.profile.description) %}
+                    <label for="phone">Photo</label></br>
+                    {{ form_widget(form.profile.file, {'attr': { 'tabindex': '12', } }) }}
+                    {% if form_errors(form.profile.file) %}
                         <span class="error">adsas</span>
                     {% endif %}
                 </p>
 
+                <p class="pure-u-1-2 ">
+                    <label for="phone">Description</label></br>
+                    {{ form_widget(form.profile.description, {'attr': { 'tabindex': '13', 'style':'width:250px;', 'rows': 10 } }) }}
+                    {% if form_errors(form.profile.description) %}
+                        <span class="error">adsas</span>
+                    {% endif %}
+                </p>
             </div>
             <p>* Mandatory fields</p>
 

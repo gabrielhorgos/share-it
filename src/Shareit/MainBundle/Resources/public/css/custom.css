@@ -104,9 +104,14 @@
     float: right;
 }
 
-.error{
+.error {
     display: inline-block;
     font-family: 'Signika-Bold';
     font-size: 16px;
     color: #ff4c4b;
+}
+
+.img-user {
+    width: 100px;
+    height: 100px;
 }

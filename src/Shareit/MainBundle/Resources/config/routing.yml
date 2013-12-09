@@ -15,3 +15,7 @@ fo_login_check:
 
 fo_logout:
     pattern: /logout
+
+my_account:
+    pattern: /my-account
+    defaults: { _controller: ShareitMainBundle:Registration:myAccount }
