@@ -1,154 +1,132 @@
 {% extends '::base.html.twig' %}
 
 {% block page %}
-    <div id="page">
+    <div id="page" class="inner-width">
         <h1 class="title-5" data-icon="s">
             <span>Register</span>
         </h1>
 
-        <form id="form-registration" method="POST" action="{{ path('registration') }}" novalidate="novalidate">
-            <div class="unit">
-                <p id="civility" class="form-item form-radio">
-                    {{ form_widget(form.profile.gender) }}
-                </p>
+        <form class="pure-form pure-form-stacked" method="POST" action="{{ path('registration') }}" novalidate="novalidate">
+            <p id="civility" class="pure-checkbox">
+                {{ form_widget(form.profile.gender) }}
+            </p>
 
+            {% if form_errors(form.profile.gender) %}
                 <p>
-                    {% if form_errors(form.profile.gender) %}
-                        <span class="alert alert-danger">Please select a gender</span>
-                    {% endif %}
+                    <span class="error">Please select a gender</span>
                 </p>
+            {% endif %}
 
-                <p class="form-item form-text">
-                    <label for="fistname">FirstName*</label>
-                    {{ form_widget(form.profile.firstname, {'attr': {'class': 'checkfield required name', 'tabindex': '1' },'id':'fistname' }) }}
-                </p>
-
-                <p>
+            <div class="pure-g-r">
+                <p class="pure-u-1-2 form-text">
+                    <label for="fistname">Firstname *</label></br>
+                    {{ form_widget(form.profile.firstname, {'attr': {'class': 'checkfield required name', 'tabindex': '1', 'style':'width:250px;' },'id':'fistname' }) }}
                     {% if form_errors(form.profile.firstname) %}
-                        <span class="alert alert-danger">adsas</span>
+                        <span class="error">adsas</span>
                     {% endif %}
                 </p>
 
-                <p class="form-item form-text">
-                    <label for="lastname">LastName*</label>
-                    {{ form_widget(form.profile.lastname, {'attr': {'class': 'checkfield required name', 'tabindex': '2' },'id': 'lastname' }) }}
-                </p>
 
-                <p>
+                <p class="pure-u-1-2 form-text">
+                    <label for="lastname">LastName*</label></br>
+                    {{ form_widget(form.profile.lastname, {'attr': {'class': 'checkfield required name', 'tabindex': '2', 'style':'width:250px;' },'id': 'lastname' }) }}
                     {% if form_errors(form.profile.lastname) %}
-                        <span class="alert alert-danger">adsas</span>
+                        <span class="error">adsas</span>
                     {% endif %}
                 </p>
 
-                <p class="form-item form-text">
-                    <label for="email">Email*</label>
-                    {{ form_widget(form.email, {'attr': {'class': 'checkfield required email', 'tabindex': '3'  }, 'id': 'email' }) }}
-                </p>
 
-                <p>
+                <p class="pure-u-1-2 form-text">
+                    <label for="email">Email*</label></br>
+                    {{ form_widget(form.email, {'attr': {'class': 'checkfield required email', 'tabindex': '3', 'style':'width:250px;' }, 'id': 'email' }) }}
                     {% if form_errors(form.email) %}
-                        <span class="alert alert-danger">adsas</span>
+                        <span class="error">adsas</span>
                     {% endif %}
                 </p>
 
-                <p class="form-item form-text">
-                    <label for="email">Username*</label>
-                    {{ form_widget(form.username, {'attr': {'class': 'checkfield required', 'tabindex': '4'  }, 'id': 'email' }) }}
-                </p>
 
-                <p>
+                <p class="pure-u-1-2 form-text">
+                    <label for="email">Username*</label></br>
+                    {{ form_widget(form.username, {'attr': {'class': 'checkfield required', 'tabindex': '4', 'style':'width:250px;'  }, 'id': 'email' }) }}
                     {% if form_errors(form.username) %}
-                        <span class="alert alert-danger">adsas</span>
+                        <span class="error">adsas</span>
                     {% endif %}
                 </p>
 
-                <p class="form-item form-text ">
-                    <label for="password">Password*</label>
-                    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'checkfield required password', 'tabindex': '5' } }) }}
+
+                <p class="pure-u-1-2 form-text ">
+                    <label for="password">Password*</label></br>
+                    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'checkfield required password', 'tabindex': '5' , 'style':'width:250px;'} }) }}
                 </p>
 
 
-                <p class="form-item form-text">
-                    <label for="password-confirm">Confirm password*</label>
-                    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'checkfield required password-confirm', 'tabindex': '6' }}) }}
-                </p>
-
-                <p>
+                <p class="pure-u-1-2 form-text">
+                    <label for="password-confirm">Confirm password*</label></br>
+                    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'checkfield required password-confirm', 'tabindex': '6', 'style':'width:250px;' }}) }}
                     {% if form_errors(form.plainPassword) %}
-                        <span class="alert alert-danger">adsas</span>
+                        <span class="error">adsas</span>
                     {% endif %}
                 </p>
 
-                <p class="form-item form-text">
-                    <label for="town">City</label>
-                    {{ form_widget(form.profile.city, {'attr': {'tabindex': '7' },'id':'town' }) }}
-                </p>
 
-                <p>
+                <p class="pure-u-1-2 form-text">
+                    <label for="town">City</label></br>
+                    {{ form_widget(form.profile.city, {'attr': {'tabindex': '7', 'style':'width:250px;' },'id':'town' }) }}
                     {% if form_errors(form.profile.city) %}
-                        <span class="alert alert-danger">adsas</span>
+                        <span class="error">adsas</span>
                     {% endif %}
                 </p>
 
-                <p class="form-item form-text">
-                    <label for="address">Address</label>
-                    {{ form_widget(form.profile.address, {'attr': {'tabindex': '8' }}) }}
-                </p>
 
-                <p>
+                <p class="pure-u-1-2 form-text">
+                    <label for="address">Address</label></br>
+                    {{ form_widget(form.profile.address, {'attr': {'tabindex': '8' , 'style':'width:250px;'}}) }}
                     {% if form_errors(form.profile.address) %}
-                        <span class="alert alert-danger">adsas</span>
+                        <span class="error">adsas</span>
                     {% endif %}
                 </p>
 
-                <p class="form-item form-text">
-                    <label for="zipcode">Zipcode</label>
-                    {{ form_widget(form.profile.zipcode, {'attr': {'class': 'checkfield zipcode', 'tabindex': '9' },'id':'zipcode' }) }}
-                </p>
 
-                <p>
+                <p class="pure-u-1-2 form-text">
+                    <label for="zipcode">Zipcode</label></br>
+                    {{ form_widget(form.profile.zipcode, {'attr': {'class': 'checkfield zipcode', 'tabindex': '9', 'style':'width:250px;' },'id':'zipcode' }) }}
                     {% if form_errors(form.profile.zipcode) %}
-                        <span class="alert alert-danger">adsas</span>
+                        <span class="error">adsas</span>
                     {% endif %}
                 </p>
 
-                <p class="form-item form-text">
-                    <label for="phone">Phone</label>
-                    {{ form_widget(form.profile.phone, {'attr': {'class': 'checkfield phone', 'tabindex': '10' },'id':'phone' }) }}
-                </p>
 
-                <p>
+                <p class="pure-u-1-2 form-text">
+                    <label for="phone">Phone</label></br>
+                    {{ form_widget(form.profile.phone, {'attr': {'class': 'checkfield phone', 'tabindex': '10', 'style':'width:250px;' },'id':'phone' }) }}
                     {% if form_errors(form.profile.phone) %}
-                        <span class="alert alert-danger">adsas</span>
+                        <span class="error">adsas</span>
                     {% endif %}
                 </p>
 
-                <p class="form-item form-text">
-                    <label for="phone">Company</label>
-                    {{ form_widget(form.profile.company, {'attr': {'tabindex': '11' } }) }}
-                </p>
 
-                <p>
+                <p class="pure-u-1-2 form-text">
+                    <label for="phone">Company</label></br>
+                    {{ form_widget(form.profile.company, {'attr': {'tabindex': '11' , 'style':'width:250px;'} }) }}
                     {% if form_errors(form.profile.company) %}
-                        <span class="alert alert-danger">adsas</span>
+                        <span class="error">adsas</span>
                     {% endif %}
                 </p>
 
-                <p class="form-item form-text">
-                    <label for="phone">Description</label>
-                    {{ form_widget(form.profile.description, {'attr': { 'tabindex': '12' } }) }}
-                </p>
 
-                <p>
+                <p class="pure-u-1-2 form-text">
+                    <label for="phone">Description</label></br>
+                    {{ form_widget(form.profile.description, {'attr': { 'tabindex': '12', 'style':'width:250px;' } }) }}
                     {% if form_errors(form.profile.description) %}
-                        <span class="alert alert-danger">adsas</span>
+                        <span class="error">adsas</span>
                     {% endif %}
                 </p>
+
             </div>
-            <p>* Mentions obligatoires</p>
+            <p>* Mandatory fields</p>
 
 
-            <p class="form-item form-submit txt-c">
+            <p class="pure-u-1-2 form-submit txt-c">
                 <button type="submit" class="btn btn-l bg-blue" tabindex="12" id='registration-button'>
                     Register
                     <span class="icon icon-arrow-right"></span>

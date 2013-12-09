@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <!--[if IE 7]>
-<html class="msie7" lang="fr"><![endif]-->
+<html class="msie7" lang="en"><![endif]-->
 <!--[if IE 8]>
-<html class="msie8" lang="fr"><![endif]-->
+<html class="msie8" lang="en"><![endif]-->
 <!--[if IE 9]>
-<html class="msie9" lang="fr"><![endif]-->
+<html class="msie9" lang="en"><![endif]-->
 <!--[if !IE]><!-->
-<html lang="fr" xmlns="http://www.w3.org/1999/html"><!-- <![endif]-->
+<html lang="en" xmlns="http://www.w3.org/1999/html"><!-- <![endif]-->
 <head>
     <meta charset="utf-8">
-
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
     <link rel="stylesheet" href="{{ asset('bundles/shareitmain/css/bootstrap.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('bundles/shareitmain/css/custom.css') }}" type="text/css">
     <title></title>
 
     {% block stylesheets %}{% endblock %}
@@ -20,10 +21,11 @@
 <body style="padding-top: 50px;">
 {% block body %}
     {% include '::menu.html.twig' %}
-
     {% block page %}{% endblock %}
-
 {% endblock %}
-
+{% block javascript %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/bundles/shareitmain/js/bootstrap.js') }}"></script>
+{% endblock %}
 </body>
 </html>

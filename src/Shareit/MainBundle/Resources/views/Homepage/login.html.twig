@@ -19,6 +19,11 @@
                     <br/>
                     <button type="submit" class="btn btn-warning" name="login"><i class="icon-user icon-white"></i>Login</button>
                 </form>
+
+                {% if error %}
+                    </br>
+                    <div class="alert alert-danger">{{ error.message }}<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a></div>
+                {% endif %}
             </div>
             <div class="col-sm-4 right">
                 <p>Don't have an account yet?</p>
@@ -29,7 +34,4 @@
         </div>
     </div>
 
-    {% if error %}
-        <div class="alert alert-danger">{{ error.message }}</div>
-    {% endif %}
 {% endblock %}
