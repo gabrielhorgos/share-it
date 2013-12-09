@@ -99,4 +99,18 @@ class RegistrationController extends Controller
 
         throw new AccessDeniedException();
     }
+
+    public function forgotPasswordAction(Request $request)
+    {
+        if ($request->getMethod() == "POST") {
+            if ($email = $request->request->get('email')) {
+                $user = $this->getDoctrine()->getRepository('ShareitMainBundle:User')->findOneByEmail($email);
+                if ($user) {
+                    $this->container->get('shareit.user_manager')->resetPassword($user);
+                    return $this->redirect($this->generateUrl('fo_login'));
+                }
+            }
+        }
+        throw new AccessDeniedException();
+    }
 }

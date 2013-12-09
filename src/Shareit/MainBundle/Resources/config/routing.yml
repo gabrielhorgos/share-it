@@ -19,3 +19,7 @@ fo_logout:
 my_account:
     pattern: /my-account
     defaults: { _controller: ShareitMainBundle:Registration:myAccount }
+
+forgot_password:
+    pattern: /reset-password
+    defaults: { _controller: ShareitMainBundle:Registration:forgotPassword }

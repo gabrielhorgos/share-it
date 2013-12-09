@@ -29,9 +29,10 @@
                 <p>Don't have an account yet?</p>
                 <a href="{{ path('registration') }}" class="btn btn-success">Register now</a>
                 </br>
-                <a href="#" class="btn btn-default" style="margin-top:28px;">Forgot password?</a>
+                <button type="button" data-toggle="modal" data-target="#forgotPassword" class="btn btn-default" style="margin-top:28px;">Forgot username or password?</button>
             </div>
         </div>
     </div>
+    {% include 'ShareitMainBundle:Homepage:forgot_password.html.twig' %}
 
 {% endblock %}
