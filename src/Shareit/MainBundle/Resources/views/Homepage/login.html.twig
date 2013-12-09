@@ -30,6 +30,11 @@
                 <a href="{{ path('registration') }}" class="btn btn-success">Register now</a>
                 </br>
                 <button type="button" data-toggle="modal" data-target="#forgotPassword" class="btn btn-default" style="margin-top:28px;">Forgot username or password?</button>
+                </br>
+                {% for message in  app.session.flashbag.get('notice') %}
+                    </br>
+                    <div class="alert alert-success">{{ message }}<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a></div>
+                {% endfor %}
             </div>
         </div>
     </div>

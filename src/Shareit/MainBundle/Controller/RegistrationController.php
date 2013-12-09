@@ -107,6 +107,7 @@ class RegistrationController extends Controller
                 $user = $this->getDoctrine()->getRepository('ShareitMainBundle:User')->findOneByEmail($email);
                 if ($user) {
                     $this->container->get('shareit.user_manager')->resetPassword($user);
+                    $this->get('session')->getFlashbag()->add('notice', 'Your password has been reset. Please check you email account.');
                     return $this->redirect($this->generateUrl('fo_login'));
                 }
             }
